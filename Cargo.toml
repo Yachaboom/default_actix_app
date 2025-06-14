@@ -1,0 +1,58 @@
+[package]
+name = "default_actix_app"
+version = "0.1.0"
+edition = "2024"
+authors = ["yachaboom <yachaboom@gmail.com>"]
+description = "기본 Actix Web 애플리케이션 - 웹 서버 개발을 위한 템플릿"
+repository = "https://github.com/username/default_actix_app"
+homepage = "https://example.com/default_actix_app"
+documentation = "https://docs.rs/default_actix_app"
+readme = "README.md"
+license = "MIT"
+keywords = ["actix", "web", "server", "rust", "http"]
+categories = ["web-programming::http-server"]
+rust-version = "1.87.0"
+
+include = ["src/**/*", "Cargo.toml", "README.md", "LICENSE*", "examples/**/*"]
+
+[dependencies]
+actix-web = "4.11.0"
+serde = { version = "1.0.219", features = ["derive"] }
+tokio = { version = "1.45.1", features = ["full"] }
+anyhow = "1.0.98"
+thiserror = "2.0.12"
+
+[dev-dependencies]
+rstest = "0.25.0"
+criterion = { version = "0.6.0", features = ["html_reports"] }
+proptest = "1.7.0"
+mockall = "0.13.1"
+
+[features]
+default = ["std"]
+std = []
+async = ["tokio"]
+serde_support = ["serde", "serde/derive"]
+testing = ["rstest", "proptest"]
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bench]]
+name = "benchmarks"
+harness = false
+
+[profile.dev]
+opt-level = 1
+debug = "line-tables-only"
+incremental = true
+split-debuginfo = "unpacked"
+
+[profile.release]
+opt-level = 3
+debug = false
+strip = "symbols"
+lto = "thin"
+panic = "abort"
+codegen-units = 1

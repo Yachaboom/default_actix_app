@@ -1,0 +1,30 @@
+# Rust/Cargo
+debug/
+target/
+Cargo.lock  # 실행 파일의 경우 이 줄 제거
+**/*.rs.bk
+*.pdb
+**/mutants.out*/
+
+# IDE
+.vscode/
+*.code-workspace
+.idea/
+rust-project.json
+
+# 운영체제
+.DS_Store
+Thumbs.db
+
+# 커버리지 및 프로파일링
+coverage/
+*.lcov
+lcov.info
+tarpaulin-report.html
+*.profraw
+*.profdata
+
+# 벤치마킹
+target/criterion/
+*.svg
+perf.data*

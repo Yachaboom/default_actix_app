@@ -1,0 +1,31 @@
+# Rust 속성
+[attr]rust text eol=lf whitespace=tab-in-indent,trailing-space,tabwidth=4
+
+# 기본 자동 줄바꿈 정규화
+* text=auto eol=lf
+
+# Rust 소스 파일
+*.rs rust diff=rust
+*.toml text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Rust 특정 파일
+Cargo.lock linguist-generated=false
+*.fixed linguist-language=Rust
+*.mir linguist-language=Rust
+
+# 바이너리 파일
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
